@@ -13,7 +13,7 @@
         <fileSet>
             <directory>src/main/resources</directory>
         </fileSet>
-        <fileSet>
+        <fileSet filtered="true">
             <directory/>
             <includes>
                 <include>.gitignore</include>
