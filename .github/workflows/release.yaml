@@ -34,4 +34,4 @@ jobs:
             - Fix 1
           prerelease: contains(github.ref, '-beta') || contains(github.ref, '-alpha')
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_PAT }}
