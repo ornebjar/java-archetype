@@ -4,7 +4,7 @@
 
   <groupId>se.pabi</groupId>
   <artifactId>java-archetype</artifactId>
-  <version>1.11</version>
+  <version>1.11.1</version>
   <packaging>maven-archetype</packaging>
 
   <properties>
