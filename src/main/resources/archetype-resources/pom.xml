@@ -11,7 +11,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
-    <log4j.version>2.24.1</log4j.version>
+    <log4j.version>2.24.3</log4j.version>
   </properties>
 
   <dependencies>
@@ -29,7 +29,7 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
-      <version>5.11.3</version>
+      <version>5.11.4</version>
       <scope>test</scope>
     </dependency>
     <dependency>
