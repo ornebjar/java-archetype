@@ -1,0 +1,37 @@
+name: Create GitHub Release on Tag Push
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get tag name
+        id: get_version
+        run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.get_version.outputs.TAG_NAME }}
+          name: Release ${{ steps.get_version.outputs.TAG_NAME }}
+          body: |
+            Automatically generated release from tag ${{ steps.get_version.outputs.TAG_NAME }}.
+            # New Features
+            - Item 1
+            - Item 2
+            # Bug Fixes
+            - Fix 1
+          prerelease: contains(github.ref, '-beta') || contains(github.ref, '-alpha')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
